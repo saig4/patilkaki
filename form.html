@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide Up Form</title>
+  <style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+#slide-up-form {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  transition: bottom 1s ease;
+}
+
+#slide-up-form.active {
+  bottom: 0;
+}
+
+#slide-up-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+#slide-up-form label {
+  margin-bottom: 10px;
+}
+
+#slide-up-form input,
+#slide-up-form button {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#slide-up-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#slide-up-form button:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+</head>
+<body>
+
+  <div id="slide-up-form">
+    <form action="#" method="post">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function() {
+    document.getElementById('slide-up-form').classList.add('active');
+  }, 15000);
+});
+
+  </script>
+</body>
+</html>

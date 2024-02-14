@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+<style>
+body{
+    background-color: aliceblue;
+    background-image:url(offer.jpg)
+}
+
+  div {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  #timer {
+    font-size: 36px;
+    color: red;
+  }
+
+  button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in;
+  box-shadow: 5px 5px 5px black;
+}
+
+button:hover{
+    background-color: green;
+}
+
+</style>
+</head>
+
+
+<body>
+<div>
+    <h1>Hurry up! This offer ends in:</h1>
+ <div id="timer">10:00</div>
+ <br>
+  <button>Register Now</button>
+</div>
+  <script>
+    // Set the countdown time in seconds
+    var countdownTime = 10 * 60;
+
+    var timerDisplay = document.getElementById('timer');
+
+    // Update the timer display every second
+    var timerInterval = setInterval(updateTimer, 1000);
+
+    function updateTimer() {
+      var minutes = Math.floor(countdownTime / 60);
+      var seconds = countdownTime % 60;
+
+      // Add leading zeros if necessary
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      // Update the timer display
+      timerDisplay.textContent = minutes + ':' + seconds;
+
+      // Decrease the countdown time
+      countdownTime--;
+
+      // If the countdown reaches zero, stop the timer
+      if (countdownTime < 0) {
+        clearInterval(timerInterval);
+        timerDisplay.textContent = 'Time\'s up!';
+      }
+    }
+  </script>
+</body>
+</html>
